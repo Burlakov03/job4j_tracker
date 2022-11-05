@@ -7,7 +7,7 @@ public class DummyDic {
     }
 
     public static void main(String[] args) {
-        DummyDic translate = new DummyDic();
+        DummyDic translate =new DummyDic();
         System.out.println(translate.engToRus("word"));
     }
 }
