@@ -18,7 +18,7 @@ public class Config {
         System.out.println(position);
     }
 
-    public String search(String key) {
+    private String search(String key) {
         return key;
     }
 }
