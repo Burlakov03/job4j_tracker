@@ -29,9 +29,6 @@ public class Error {
         Error error3 = new Error(true, 3, "Exception: String can not be empty!");
         error3.showError();
         Error error4 = new Error();
-        error4.active = false;
-        error4.status = 4;
-        error4.message = "obj не может быть равно null";
         error4.showError();
     }
 }
