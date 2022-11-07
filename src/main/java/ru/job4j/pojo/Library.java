@@ -25,7 +25,7 @@ public class Library {
         }
         System.out.println(System.lineSeparator() + "According to your request: Clean code book:");
         for (int index = 0; index < books.length; index++) {
-            if (books[index].getName().equals("Clean code")) {
+            if ("Clean code".equals(books[index].getName())) {
                 System.out.println("Book: " + books[index].getName() + ". Number of page: " + books[index].getCount());
                 break;
             }
