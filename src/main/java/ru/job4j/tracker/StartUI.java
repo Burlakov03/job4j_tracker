@@ -9,7 +9,7 @@ public class StartUI {
             showMenu();
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select == 1) {
+            if (select == 0) {
                 System.out.println("=== Create a new Item ===");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
