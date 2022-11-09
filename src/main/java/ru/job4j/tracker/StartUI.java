@@ -47,6 +47,16 @@ public class StartUI {
                 } else {
                     System.out.println("Request deletion error.");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Find Item by id===");
+                System.out.print("Enter id search item by id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("The request with the entered id: " + id + " was not found.");
+                }
             } else if (select != 6) {
                 System.out.println("User  selected: " + select);
             } else {
