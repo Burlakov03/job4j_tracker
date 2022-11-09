@@ -39,7 +39,7 @@ public class StartUI {
                     System.out.println("Request replacement error.");
                 }
             } else if (select != 6) {
-                System.out.println("User selected: " + select);
+                System.out.println("User  selected: " + select);
             } else {
                 run = false;
             }
