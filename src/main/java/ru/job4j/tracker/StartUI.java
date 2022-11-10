@@ -18,9 +18,7 @@ public class StartUI {
                 findItemById(input, tracker);
             } else if (select == 5) {
                 findItemsByName(input, tracker);
-            } else if (select != 6) {
-                System.out.println("User  selected: " + select);
-            } else {
+            } else if (select == 6) {
                 run = false;
             }
         }
