@@ -15,6 +15,30 @@ public class FindEl {
         return rsl;
     }
 
+    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+        boolean results = true;
+        for (String s: abuses) {
+            if (s.equals(value)) {
+                results = false;
+                break;
+            }
+        }
+        if (!results) {
+            throw  new ElementAbuseException("Element Abuse");
+        }
+        return results;
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         String[] s = {"dert", "r", "dwed"};
         try {
