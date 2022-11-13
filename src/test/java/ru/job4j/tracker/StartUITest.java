@@ -1,9 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
-
-import java.time.format.DateTimeFormatter;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
@@ -39,7 +36,6 @@ public class StartUITest {
     public void whenFindAllActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -55,16 +51,8 @@ public class StartUITest {
                         + "0. Show all items" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Show all items ===" + System.lineSeparator()
-                        + "Item{"
-                        + "id=" + one.getId()
-                        + ", name='" + one.getName() + '\''
-                        + ", created=" + one.getCreate().format(formatter)
-                        + '}' + System.lineSeparator()
-                        + "Item{"
-                        + "id=" + two.getId()
-                        + ", name='" + two.getName() + '\''
-                        + ", created=" + two.getCreate().format(formatter)
-                        + '}' + System.lineSeparator()
+                        + one + System.lineSeparator()
+                        + two + System.lineSeparator()
                         + "Menu:" + System.lineSeparator()
                         + "0. Show all items" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
@@ -76,7 +64,6 @@ public class StartUITest {
     public void whenFindByNameActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -92,11 +79,7 @@ public class StartUITest {
                         + "0. Find items by name" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Find Item by name===" + System.lineSeparator()
-                        + "Item{"
-                        + "id=" + one.getId()
-                        + ", name='" + one.getName() + '\''
-                        + ", created=" + one.getCreate().format(formatter)
-                        + '}' + System.lineSeparator()
+                        + one + System.lineSeparator()
                         + "Menu:" + System.lineSeparator()
                         + "0. Find items by name" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
@@ -108,7 +91,6 @@ public class StartUITest {
     public void whenFindByIdActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -124,11 +106,7 @@ public class StartUITest {
                         + "0. Find item by id" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
                         + "=== Find Item by id===" + System.lineSeparator()
-                        + "Item{"
-                        + "id=" + two.getId()
-                        + ", name='" + two.getName() + '\''
-                        + ", created=" + two.getCreate().format(formatter)
-                        + '}' + System.lineSeparator()
+                        + two + System.lineSeparator()
                         + "Menu:" + System.lineSeparator()
                         + "0. Find item by id" + System.lineSeparator()
                         + "1. Exit Program" + System.lineSeparator()
