@@ -1,11 +1,19 @@
 package ru.job4j.early;
 
 public class SearchSymbol implements ValidPassword {
+    private static final String[] SUBSTRINGS = {
+            "qwerty",
+            "12345",
+            "password",
+            "admin",
+            "user"
+    };
+
     @Override
     public boolean searchUpperCase(String pass) {
         boolean result = false;
-        for (int i = 0; i < pass.length(); i++) {
-            if (Character.isUpperCase(pass.charAt(i))) {
+        for (char ch : pass.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
                 result = true;
                 break;
             }
@@ -16,8 +24,8 @@ public class SearchSymbol implements ValidPassword {
     @Override
     public boolean searchLowerCase(String pass) {
         boolean result = false;
-        for (int i = 0; i < pass.length(); i++) {
-            if (Character.isLowerCase(pass.charAt(i))) {
+        for (char ch : pass.toCharArray()) {
+            if (Character.isLowerCase(ch)) {
                 result = true;
                 break;
             }
@@ -28,8 +36,8 @@ public class SearchSymbol implements ValidPassword {
     @Override
     public boolean searchDigit(String pass) {
         boolean result = false;
-        for (int i = 0; i < pass.length(); i++) {
-            if (Character.isDigit(pass.charAt(i))) {
+        for (char ch : pass.toCharArray()) {
+            if (Character.isDigit(ch)) {
                 result = true;
                 break;
             }
@@ -41,8 +49,8 @@ public class SearchSymbol implements ValidPassword {
     public boolean searchSpecialSymbol(String pass) {
         boolean result = false;
         pass = pass.toLowerCase();
-        for (int i = 0; i < pass.length(); i++) {
-            if (!Character.isDigit(pass.charAt(i)) && !Character.isLowerCase(pass.charAt(i))) {
+        for (char ch : pass.toCharArray()) {
+            if (!Character.isDigit(ch) && !Character.isLowerCase(ch)) {
                 result = true;
                 break;
             }
@@ -53,15 +61,8 @@ public class SearchSymbol implements ValidPassword {
     @Override
     public boolean searchSubstring(String pass) {
         boolean result = false;
-        String[] substrings = {
-                "qwerty",
-                "12345",
-                "password",
-                "admin",
-                "user"
-        };
         pass = pass.toLowerCase();
-        for (String ss : substrings) {
+        for (String ss : SUBSTRINGS) {
             if (pass.contains(ss)) {
                 result = true;
                 break;
