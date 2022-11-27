@@ -20,12 +20,12 @@ class ItemAscByNameTest {
                 new Item("First")
         );
         List<Item> expected = Arrays.asList(
-                items.get(1),
-                items.get(0),
-                items.get(3),
-                items.get(5),
-                items.get(2),
-                items.get(4)
+                new Item("Aisik"),
+                new Item("Bug"),
+                new Item("Dog"),
+                new Item("First"),
+                new Item("Funtic"),
+                new Item("Second")
         );
         items.sort(new ItemAscByName());
         assertThat(items).isEqualTo(expected);

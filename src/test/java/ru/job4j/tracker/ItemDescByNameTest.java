@@ -18,12 +18,12 @@ class ItemDescByNameTest {
                 new Item("First")
         );
         List<Item> expected = Arrays.asList(
-                items.get(4),
-                items.get(2),
-                items.get(5),
-                items.get(3),
-                items.get(0),
-                items.get(1)
+                new Item("Second"),
+                new Item("Funtic"),
+                new Item("First"),
+                new Item("Dog"),
+                new Item("Bug"),
+                new Item("Aisik")
         );
         items.sort(new ItemDescByName());
         assertThat(items).isEqualTo(expected);
