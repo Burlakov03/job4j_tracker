@@ -13,7 +13,7 @@ public class BankService {
     }
 
     public boolean deleteUser(String passport) {
-        return users.remove(findByPassport(passport)) != null;
+        return users.remove(new User(passport, "")) != null;
     }
 
     public void addAccount(String passport, Account account) {
@@ -22,7 +22,6 @@ public class BankService {
             List<Account> accounts = users.get(user);
             if (!accounts.contains(account)) {
                 accounts.add(account);
-                users.put(user, accounts);
             }
         }
     }
@@ -56,30 +55,14 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        User srcUser = findByPassport(srcPassport);
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
-        User destUser = findByPassport(destPassport);
         Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && srcAccount.getBalance() >= amount && destUser != null && destAccount != null) {
-            List<Account> destAccounts = users.get(destUser);
-            List<Account> srcAccounts = users.get(srcUser);
-            destAccounts = updateBalanceAccount(destAccounts, destAccount, amount);
-            srcAccounts = updateBalanceAccount(srcAccounts, srcAccount, amount * -1);
-            users.put(destUser, destAccounts);
-            users.put(srcUser, srcAccounts);
+        if (srcAccount != null && srcAccount.getBalance() >= amount && destAccount != null) {
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            srcAccount.setBalance(srcAccount.getBalance() - amount);
             rsl = true;
         }
         return rsl;
-    }
-
-    public List<Account> updateBalanceAccount(List<Account> accounts, Account upAccount, double amount) {
-        for (Account account : accounts) {
-            if (account.equals(upAccount)) {
-                account.setBalance(account.getBalance() + amount);
-                break;
-            }
-        }
-        return accounts;
     }
 
     public List<Account> getAccounts(User user) {
